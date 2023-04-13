@@ -1,290 +1,701 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Ceramika</title>
-    <meta name="description" content="Ceramika - Firma budowlana. Wacław Ryczek. Profesjonalne wykończenia wnętrz i remonty. Województwo małopolskie, śląskie, podkarpackie. ">
-    <meta name="keywords" content="wykończenia wnętrz, remonty, firma budowlana">
+    <meta
+      name="description"
+      content="Ceramika - Firma budowlana. Wacław Ryczek. Profesjonalne wykończenia wnętrz i remonty. Województwo małopolskie, śląskie, podkarpackie. "
+    />
+    <meta
+      name="keywords"
+      content="wykończenia wnętrz, remonty, firma budowlana"
+    />
 
-    <link rel="icon" href="<%= require('/src/img/favicon.svg') %>" type="image/svg+xml">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-</head>
-<body class="bg-white">
-
+    <link
+      rel="icon"
+      href="<%= require('/src/img/favicon.svg') %>"
+      type="image/svg+xml"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-white">
     <!-- menu mobile -->
-    <nav id="menu-mobile" class="d-md-none navbar shadow-sm bg-white position-fixed top-0 start-0 end-0 z-3 navigation">
+    <nav
+      id="menu-mobile"
+      class="d-md-none navbar shadow-sm bg-white position-fixed top-0 start-0 end-0 z-3 navigation"
+    >
+      <div class="container-fluid">
+        <a class="w-100 text-center" href="#">
+          <img
+            class="height-logo"
+            src="<%= require('./img/logo-plytkarze.svg?inline') %>"
+            alt="Logo Cerammika"
+          />
+        </a>
+        <button
+          class="navbar-toggler position-absolute end-0 border-0 menu-position menu-button"
+          type="button"
+          id="see-menu"
+        >
+          <div class="animated-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </div>
+      <div
+        class="d-none position-fixed start-0 end-0 z-3 bg-white w-100 menu-content"
+        id="menu-content"
+      >
         <div class="container-fluid">
-            <a class="w-100 text-center" href="#"><img class="height-logo" src="<%= require('./img/logo-plytkarze.svg?inline') %>" alt="Logo"></a>
-            <button class="navbar-toggler position-absolute end-0 border-0 menu-position menu-button" type="button" id="see-menu">
-                <div class="animated-icon"><span></span><span></span><span></span><span></span></div>
-            </button>
+          <ul class="navbar-nav">
+            <li class="nav-item py-2 menu-items">
+              <a class="nav-link fs-4 text-black" href="#services">Usługi</a>
+            </li>
+            <li class="nav-item py-2 menu-items">
+              <a class="nav-link fs-4 text-black" href="#realizations">
+                Realizacje
+              </a>
+            </li>
+            <li class="nav-item py-2 menu-items">
+              <a class="nav-link fs-4 text-black" href="#contact">Kontakt</a>
+            </li>
+          </ul>
         </div>
-        <div class="d-none position-fixed start-0 end-0 z-3 bg-white w-100 menu-content" id="menu-content">
-            <div class="container-fluid">
-                <ul class="navbar-nav">
-                    <li class="nav-item py-2 menu-items"><a class="nav-link fs-4 text-black" href="#services">Usługi</a></li>
-                    <li class="nav-item py-2 menu-items"><a class="nav-link fs-4 text-black" href="#realizations">Realizacje</a></li>
-                    <li class="nav-item py-2 menu-items"><a class="nav-link fs-4 text-black" href="#contact">Kontakt</a></li>
-                </ul>
-            </div>
-        </div>
+      </div>
     </nav>
 
     <!-- menu desktop -->
-    <nav class="d-none d-md-flex nav w-100 shadow-sm bg-body-tertiary fs-5 fw-semibold flex-nowrap position-absolute top-0 start-0 z-1 navigation">
-        <div class="container">
-            <div class="w-100 h-100 d-flex">
-                <div class="col-4 order-xl-2 col-xl-2 align-self-center">
-                    <img class="nav-item w-100 my-2 logo-scale" src="<%= require('./img/logo-plytkarze.svg?inline') %>" alt="Logo">
-                </div>
-                <ul class="col-8 order-xl-1 col-xl-5 nav align-items-center justify-content-end justify-content-xl-center px-0">
-                    <li class="nav-item px-4"><a class="text-reset text-decoration-none" href="#services">Usługi</a></li>
-                    <li class="nav-item px-4"><a class="text-reset text-decoration-none" href="#realizations">Realizacje</a></li>
-                    <li class="nav-item px-4"><a class="text-reset text-decoration-none" href="#contact">Kontakt</a></li>
-                </ul>
-                <ul class="d-none order-xl-3 d-xl-flex col-xl-5 nav align-items-center justify-content-center">
-                    <li class="nav-item px-3">biuro@plytkarze.com</li>
-                    <li class="nav-item px-3"><i class="bi bi-telephone-fill pe-2"></i>603 127 383</li>
-                </ul>
-            </div>
+    <nav
+      class="d-none d-md-flex nav w-100 shadow-sm bg-body-tertiary fs-5 fw-semibold flex-nowrap position-absolute top-0 start-0 z-1 navigation"
+    >
+      <div class="container">
+        <div class="w-100 h-100 d-flex">
+          <div class="col-4 order-xl-2 col-xl-2 align-self-center">
+            <img
+              class="nav-item w-100 my-2 logo-scale"
+              src="<%= require('./img/logo-plytkarze.svg?inline') %>"
+              alt="Logo Ceramika"
+            />
+          </div>
+          <ul
+            class="col-8 order-xl-1 col-xl-5 nav align-items-center justify-content-end justify-content-xl-center px-0"
+          >
+            <li class="nav-item px-4">
+              <a class="text-reset text-decoration-none" href="#services">
+                Usługi
+              </a>
+            </li>
+            <li class="nav-item px-4">
+              <a class="text-reset text-decoration-none" href="#realizations">
+                Realizacje
+              </a>
+            </li>
+            <li class="nav-item px-4">
+              <a class="text-reset text-decoration-none" href="#contact">
+                Kontakt
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="d-none order-xl-3 d-xl-flex col-xl-5 nav align-items-center justify-content-center"
+          >
+            <li class="nav-item px-3">biuro@plytkarze.com</li>
+            <li class="nav-item px-3">
+              <i class="bi bi-telephone-fill pe-2"></i>
+              603 127 383
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- start -->
     <header class="w-100 vh-100 position-relative overflow-hidden">
-        <img class="position-absolute header-img" src="<%= require('./img/start.jpg') %>" alt="header image">
-        <div class="text-center text-uppercase position-absolute z-1 header-text red "> 
-            <h2 class="header-nowrap">Profesjonalne wykończenia wnętrz</h2>
-            <h4 class="d-none d-sm-block mb-3 header-nowrap">południowa część Polski</h4>
-            <div class="text-center pt-4">
-                <a href="#services" class="btn fs-5 btn-header br-0" role="button">Zobacz więcej</a>
-            </div>
+      <img
+        class="position-absolute header-img"
+        src="<%= require('./img/start.jpg') %>"
+        alt="Ceramika - Firma Budowlana"
+      />
+      <div
+        class="text-center text-uppercase position-absolute z-1 header-text red"
+      >
+        <h2 class="header-nowrap">Profesjonalne wykończenia wnętrz</h2>
+        <h4 class="d-none d-sm-block mb-3 header-nowrap">
+          południowa część Polski
+        </h4>
+        <div class="text-center pt-4">
+          <a href="#services" class="btn fs-5 btn-header br-0" role="button">
+            Zobacz więcej
+          </a>
         </div>
+      </div>
     </header>
 
     <!-- services -->
     <section id="services" class="w-100 pb-4 pb-lg-5 anchor1">
-        <h1 class="text-center pb-4 pb-lg-5 padding-top">Usługi</h1>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 pt-0 col-md-4 text-center p-services">
-                    <img class="services-img" src="<%= require('./img/wall1.png') %>" alt="Układanie płytek">
-                    <h4 class="pt-2 pt-md-4">Układanie płytek</h4>
-                    <p class="m-0">ściennych<br/>podłogowych<br/>na tarasach<br/>schodach<br/>elewacjach<br/>kamienia naturalnego</p>    
-                </div>
-                <div class="col-12 pt-4 pt-md-0 col-md-4 text-center">
-                    <img class="services-img" src="<%= require('./img/brush1.png') %>" alt="Malowanie ścian">
-                    <h4 class="pt-2 pt-md-4">Ściany</h4>
-                    <p class="m-0">gipsowanie<br/>malowanie<br/>tapetowanie<br/>suche tynki<br/>ścianki działowe<br/>suche zabudowy z płyt gk</p>    
-                </div>
-                <div class="col-12 pt-4 pt-md-0 col-md-4 text-center">
-                    <img class="services-img" src="<%= require('./img/house1.png') %>" alt="Pozostałe usługi">
-                    <h4 class="pt-2 pt-md-4">Pozostałe</h4>
-                    <p class="m-0">instalacje wod-kan<br/>sufity podwieszane<br/>montaż stolarki okiennej i drzwiowej<br/>biały montaż (wanny, umywalki, kabiny)<br/>wszelkie prace rozbiórkowe i przygotowawcze</p>
-                </div>  
-            </div>
+      <h1 class="text-center pb-4 pb-lg-5 padding-top">Usługi</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 pt-0 col-md-4 text-center p-services">
+            <img
+              class="services-img"
+              src="<%= require('./img/wall1.png') %>"
+              alt="Układanie płytek"
+            />
+            <h4 class="pt-2 pt-md-4">Układanie płytek</h4>
+            <p class="m-0">
+              ściennych
+              <br />
+              podłogowych
+              <br />
+              na tarasach
+              <br />
+              schodach
+              <br />
+              elewacjach
+              <br />
+              kamienia naturalnego
+            </p>
+          </div>
+          <div class="col-12 pt-4 pt-md-0 col-md-4 text-center">
+            <img
+              class="services-img"
+              src="<%= require('./img/brush1.png') %>"
+              alt="Malowanie ścian"
+            />
+            <h4 class="pt-2 pt-md-4">Ściany</h4>
+            <p class="m-0">
+              gipsowanie
+              <br />
+              malowanie
+              <br />
+              tapetowanie
+              <br />
+              suche tynki
+              <br />
+              ścianki działowe
+              <br />
+              suche zabudowy z płyt gk
+            </p>
+          </div>
+          <div class="col-12 pt-4 pt-md-0 col-md-4 text-center">
+            <img
+              class="services-img"
+              src="<%= require('./img/house1.png') %>"
+              alt="Pozostałe usługi"
+            />
+            <h4 class="pt-2 pt-md-4">Pozostałe</h4>
+            <p class="m-0">
+              instalacje wod-kan
+              <br />
+              sufity podwieszane
+              <br />
+              montaż stolarki okiennej i drzwiowej
+              <br />
+              biały montaż (wanny, umywalki, kabiny)
+              <br />
+              wszelkie prace rozbiórkowe i przygotowawcze
+            </p>
+          </div>
         </div>
+      </div>
     </section>
-    
+
     <!-- selected projects -->
     <section id="realizations" class="w-100 pb-4 pb-lg-5 anchor">
-        <h1 class="text-center pt-5 pb-4 py-lg-5">Nasze realizacje</h1>
-        <div class="container text-center my-3 mt-md-0">
-            <div class="row mx-auto my-auto justify-content-center">
-                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <div class="col-md-3">
-                                <div class="card border-0">
-                                    <div class="card-img p-2 pt-md-0"><img src="<%= require('./img/1.jpg') %>" class="img-fluid"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-md-3">
-                                <div class="card border-0">
-                                    <div class="card-img p-2 pt-md-0"><img src="<%= require('./img/2.jpg') %>" class="img-fluid"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-md-3">
-                                <div class="card border-0">
-                                    <div class="card-img p-2 pt-md-0"><img src="<%= require('./img/3.jpg') %>" class="img-fluid"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-md-3">
-                                <div class="card border-0">
-                                    <div class="card-img p-2 pt-md-0"><img src="<%= require('./img/4.jpg') %>" class="img-fluid"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-md-3">
-                                <div class="card border-0">
-                                    <div class="card-img p-2 pt-md-0"><img src="<%= require('./img/5.jpg') %>" class="img-fluid"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-md-3">
-                                <div class="card border-0">
-                                    <div class="card-img p-2 pt-md-0"><img src="<%= require('./img/6.jpg') %>" class="img-fluid"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-md-3">
-                                <div class="card border-0">
-                                    <div class="card-img p-2 pt-md-0"><img src="<%= require('./img/7.jpg') %>" class="img-fluid"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-md-3">
-                                <div class="card border-0">
-                                    <div class="card-img p-2 pt-md-0"><img src="<%= require('./img/8.jpg') %>" class="img-fluid"></div>
-                                </div>
-                            </div>
-                        </div>
+      <h1 class="text-center pt-5 pb-4 py-lg-5">Nasze realizacje</h1>
+      <div class="container text-center my-3 mt-md-0">
+        <div class="row mx-auto my-auto justify-content-center">
+          <div
+            id="recipeCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <div class="col-md-3">
+                  <div class="card border-0">
+                    <div class="card-img p-2 pt-md-0">
+                      <img
+                        src="<%= require('./img/1.jpg') %>"
+                        class="img-fluid"
+                      />
                     </div>
-                    <a class="carousel-control-prev w-auto justify-content-start" href="#recipeCarousel" role="button" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon bg-black" aria-hidden="true"></span>
-                    </a>
-                    <a class="carousel-control-next bg-transparent w-auto justify-content-end" href="#recipeCarousel" role="button" data-bs-slide="next">
-                        <span class="carousel-control-next-icon bg-black" aria-hidden="true"></span>
-                    </a>
+                  </div>
                 </div>
-            </div>		
+              </div>
+              <div class="carousel-item">
+                <div class="col-md-3">
+                  <div class="card border-0">
+                    <div class="card-img p-2 pt-md-0">
+                      <img
+                        src="<%= require('./img/2.jpg') %>"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="col-md-3">
+                  <div class="card border-0">
+                    <div class="card-img p-2 pt-md-0">
+                      <img
+                        src="<%= require('./img/3.jpg') %>"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="col-md-3">
+                  <div class="card border-0">
+                    <div class="card-img p-2 pt-md-0">
+                      <img
+                        src="<%= require('./img/4.jpg') %>"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="col-md-3">
+                  <div class="card border-0">
+                    <div class="card-img p-2 pt-md-0">
+                      <img
+                        src="<%= require('./img/5.jpg') %>"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="col-md-3">
+                  <div class="card border-0">
+                    <div class="card-img p-2 pt-md-0">
+                      <img
+                        src="<%= require('./img/6.jpg') %>"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="col-md-3">
+                  <div class="card border-0">
+                    <div class="card-img p-2 pt-md-0">
+                      <img
+                        src="<%= require('./img/7.jpg') %>"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="col-md-3">
+                  <div class="card border-0">
+                    <div class="card-img p-2 pt-md-0">
+                      <img
+                        src="<%= require('./img/8.jpg') %>"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev w-auto justify-content-start"
+              href="#recipeCarousel"
+              role="button"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon bg-black"
+                aria-hidden="true"
+              ></span>
+            </a>
+            <a
+              class="carousel-control-next bg-transparent w-auto justify-content-end"
+              href="#recipeCarousel"
+              role="button"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon bg-black"
+                aria-hidden="true"
+              ></span>
+            </a>
+          </div>
         </div>
-        <div class="text-center pt-3 pt-sm-4">
-            <a class="btn btn-outline-dark button fs-5" role="button" id="see-more">Zobacz galerię zdjęć</a>
-        </div>
+      </div>
+      <div class="text-center pt-3 pt-sm-4">
+        <a class="btn btn-outline-dark button fs-5" role="button" id="see-more">
+          Zobacz galerię zdjęć
+        </a>
+      </div>
     </section>
 
     <!-- gallery -->
     <section id="gallery">
-        <div id="id-gallery"class="pb-4 pb-lg-5 gallery hidden glightbox anchor">
-            <div class="container">
-                <h1 class="text-center pt-5 pb-4 py-lg-5">Galeria zdjęć</h1>
+      <div id="id-gallery" class="pb-4 pb-lg-5 gallery hidden glightbox anchor">
+        <div class="container">
+          <h1 class="text-center pt-5 pb-4 py-lg-5">Galeria zdjęć</h1>
 
-                <div class="gallery-container">
-                    <div class="lightbox"></div>
-                    <!-- 1+4 horizontal-->
-                        <div class="row w-100 m-0 py-g">
-                            <div class="col-12 col-md-6 pb-24"><img class="img-fluid" src="<%= require('./img/galeria/1.jpg') %>" alt="image"></div>
-                            <div class="col-12 col-md-6">
-                                <div class="row row-cols-2 h-100 align-content-between">
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/2.jpg') %>" alt="image"></div>
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/3.jpg') %>" alt="image"></div>
-                                    <div class="col"><img class="img-fluid" src="<%= require('./img/galeria/7.jpg') %>" alt="image"></div>
-                                    <div class="col"><img class="img-fluid" src="<%= require('./img/galeria/8.jpg') %>" alt="image"></div>
-                                </div>
-                            </div>
-                        </div>   
-
-                        <!-- 4 vertical -->
-                        <div class="row w-100 m-0 py-g">
-                            <div class="col-6 col-md-3 pb-24"><img class="img-fluid" src="<%= require('./img/galeria/4.jpg') %>" alt="image"></div>
-                            <div class="col-6 col-md-3 pb-24"><img class="img-fluid" src="<%= require('./img/galeria/5.jpg') %>" alt="image"></div>
-                            <div class="col-6 col-md-3"><img class="img-fluid" src="<%= require('./img/galeria/6.jpg') %>" alt="image"></div>
-                            <div class="col-6 col-md-3"><img class="img-fluid" src="<%= require('./img/galeria/14.jpg') %>" alt="image"></div>
-                        </div>
-
-                        <!-- 4 vertical -->
-                        <div class="row w-100 m-0 py-g">
-                            <div class="col-6 col-md-3 pb-24"><img class="img-fluid" src="<%= require('./img/galeria/12.jpg') %>" alt="image"></div>
-                            <div class="col-6 col-md-3 pb-24"><img class="img-fluid" src="<%= require('./img/galeria/9.jpg') %>" alt="image"></div>
-                            <div class="col-6 col-md-3"><img class="img-fluid" src="<%= require('./img/galeria/10.jpg') %>" alt="image"></div>
-                            <div class="col-6 col-md-3"><img class="img-fluid" src="<%= require('./img/galeria/11.jpg') %>" alt="image"></div>
-                        </div>
-
-                        <!-- 4+1 vertical -->
-                        <div class="row w-100 m-0 py-g">
-                            <div class="col-12 col-md-6">
-                                <div class="row row-cols-2 h-100 align-content-between">
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/16.jpg') %>" alt="image"></div>
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/17.jpg') %>" alt="image"></div>
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/18.jpg') %>" alt="image"></div>
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/19.jpg') %>" alt="image"></div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6"><img class="img-fluid" src="<%= require('./img/galeria/15.jpg') %>" alt="image"></div>
-                        </div> 
-
-                        <!-- 1+4 horizontal-->
-                        <div class="row w-100 m-0 py-g">
-                            <div class="col-12 col-md-6 pb-24"><img class="img-fluid" src="<%= require('./img/galeria/21.jpg') %>" alt="image"></div>
-                            <div class="col-12 col-md-6">
-                                <div class="row row-cols-2 h-100 align-content-between">
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/22.jpg') %>" alt="image"></div>
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/20.jpg') %>" alt="image"></div>
-                                    <div class="col"><img class="img-fluid" src="<%= require('./img/galeria/27.jpg') %>" alt="image"></div>
-                                    <div class="col"><img class="img-fluid" src="<%= require('./img/galeria/28.jpg') %>" alt="image"></div>
-                                </div>
-                            </div>
-                        </div> 
-
-                        <!-- 4+1 horizontal-->
-                        <div class="row w-100 m-0 py-g">
-                            <div class="col-12 col-md-6">
-                                <div class="row row-cols-2 h-100 align-content-between">
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/29.jpg') %>" alt="image"></div>
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/26.jpg') %>" alt="image"></div>
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/25.jpg') %>" alt="image"></div>
-                                    <div class="col pb-24"><img class="img-fluid" src="<%= require('./img/galeria/24.jpg') %>" alt="image"></div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6"><img class="img-fluid" src="<%= require('./img/galeria/23.jpg') %>" alt="image"></div>
-                        </div> 
-
-                        <!-- 3 horizontal -->
-                        <div class="row w-100 m-0 py-g">
-                            <div class="col-12 col-md-4 pb-24"><img class="img-fluid w-100 w-md-auto" src="<%= require('./img/galeria/32.jpg') %>" alt="image"></div>
-                            <div class="col-6 col-md-4"><img class="img-fluid" src="<%= require('./img/galeria/30.jpg') %>" alt="image"></div>
-                            <div class="col-6 col-md-4"><img class="img-fluid" src="<%= require('./img/galeria/31.jpg') %>" alt="image"></div>
-                        </div>
-                    </div>    
+          <div class="gallery-container">
+            <div class="lightbox"></div>
+            <!-- 1+4 horizontal-->
+            <div class="row w-100 m-0 py-g">
+              <div class="col-12 col-md-6 pb-24">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/1.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="row row-cols-2 h-100 align-content-between">
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/2.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/3.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/7.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/8.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
                 </div>
+              </div>
             </div>
+
+            <!-- 4 vertical -->
+            <div class="row w-100 m-0 py-g">
+              <div class="col-6 col-md-3 pb-24">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/4.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-6 col-md-3 pb-24">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/5.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-6 col-md-3">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/6.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-6 col-md-3">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/14.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+            </div>
+
+            <!-- 4 vertical -->
+            <div class="row w-100 m-0 py-g">
+              <div class="col-6 col-md-3 pb-24">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/12.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-6 col-md-3 pb-24">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/9.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-6 col-md-3">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/10.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-6 col-md-3">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/11.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+            </div>
+
+            <!-- 4+1 vertical -->
+            <div class="row w-100 m-0 py-g">
+              <div class="col-12 col-md-6">
+                <div class="row row-cols-2 h-100 align-content-between">
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/16.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/17.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/18.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/19.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/15.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+            </div>
+
+            <!-- 1+4 horizontal-->
+            <div class="row w-100 m-0 py-g">
+              <div class="col-12 col-md-6 pb-24">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/21.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="row row-cols-2 h-100 align-content-between">
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/22.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/20.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/27.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/28.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4+1 horizontal-->
+            <div class="row w-100 m-0 py-g">
+              <div class="col-12 col-md-6">
+                <div class="row row-cols-2 h-100 align-content-between">
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/29.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/26.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/25.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                  <div class="col pb-24">
+                    <img
+                      class="img-fluid"
+                      src="<%= require('./img/galeria/24.jpg') %>"
+                      alt="Zdjęcie z realizacji projektu"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/23.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+            </div>
+
+            <!-- 3 horizontal -->
+            <div class="row w-100 m-0 py-g">
+              <div class="col-12 col-md-4 pb-24">
+                <img
+                  class="img-fluid w-100 w-md-auto"
+                  src="<%= require('./img/galeria/32.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-6 col-md-4">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/30.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+              <div class="col-6 col-md-4">
+                <img
+                  class="img-fluid"
+                  src="<%= require('./img/galeria/31.jpg') %>"
+                  alt="Zdjęcie z realizacji projektu"
+                />
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- contact -->
     <div id="contact" class="anchor">
-        <section class="footer pt-5 pb-1">
-            <div class="container">
-                <h1 class="text-center pb-5">Masz pytanie? <span class="fw-bold d-block d-lg-inline">Skontaktuj się z nami!</span></h1>
-                <div class="row pb-5">
-                    <div class="col-12 col-md-4 order-3 order-md-1 logo-nip">
-                        <img class="contact-logo pb-1" src="<%= require('./img/logo-plytkarze.svg') %>" alt="Logo">
-                        <p class="fs-5">NIP 685 188 00 85<br>Biecka 126B, Gorlice</p>
-                    </div>
-                    <div class="col-12 mb-4 mb-md-0 col-md-4 order-1 order-md-2 text-center align-self-center">
-                        <p class="fs-5"><img class="d-block m-auto px-0 pb-2 d-lg-inline pb-lg-0 pe-lg-3" src="<%= require('./img/contact.png') %>" alt="Telefon">603 127 383</p>
-                    </div>
-                    <div class="col-12 mb-5 mb-md-0 col-md-4 order-2 order-md-3 text-center align-self-center">
-                        <p class="fs-5"><img class="d-block m-auto px-0 pb-2 d-lg-inline pb-lg-0 pe-lg-3" src="<%= require('./img/mail.png') %>" alt="Email">biuro@plytkarze.com</p>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-nowrap">&copy; 2023 Ceramika. Wszelkie prawa zastrzeżone.</p>
-                </div>
+      <section class="footer pt-5 pb-1">
+        <div class="container">
+          <h1 class="text-center pb-5">
+            Masz pytanie?
+            <span class="fw-bold d-block d-lg-inline">
+              Skontaktuj się z nami!
+            </span>
+          </h1>
+          <div class="row pb-5">
+            <div class="col-12 col-md-4 order-3 order-md-1 logo-nip">
+              <img
+                class="contact-logo pb-1"
+                src="<%= require('./img/logo-plytkarze.svg') %>"
+                alt="Logo Ceramika"
+              />
+              <p class="fs-5">
+                NIP 685 188 00 85
+                <br />
+                Biecka 126B, Gorlice
+              </p>
             </div>
-        </section>
+            <div
+              class="col-12 mb-4 mb-md-0 col-md-4 order-1 order-md-2 text-center align-self-center"
+            >
+              <p class="fs-5">
+                <img
+                  class="d-block m-auto px-0 pb-2 d-lg-inline pb-lg-0 pe-lg-3"
+                  src="<%= require('./img/contact.png') %>"
+                  alt="Telefon"
+                />
+                603 127 383
+              </p>
+            </div>
+            <div
+              class="col-12 mb-5 mb-md-0 col-md-4 order-2 order-md-3 text-center align-self-center"
+            >
+              <p class="fs-5">
+                <img
+                  class="d-block m-auto px-0 pb-2 d-lg-inline pb-lg-0 pe-lg-3"
+                  src="<%= require('./img/mail.png') %>"
+                  alt="Email"
+                />
+                biuro@plytkarze.com
+              </p>
+            </div>
+          </div>
+          <div class="text-center">
+            <p class="text-nowrap">
+              &copy; 2023 Ceramika. Wszelkie prawa zastrzeżone.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- scroll to top -->
-    <button type="button" class="btn-red btn-floating btn-lg br-0 z-1" id="btn-back-to-top">
-        <i class="text-white bi bi-chevron-double-up"></i>
+    <button
+      type="button"
+      class="btn-red btn-floating btn-lg br-0 z-1"
+      id="btn-back-to-top"
+    >
+      <i class="text-white bi bi-chevron-double-up"></i>
     </button>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
