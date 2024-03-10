@@ -34,7 +34,7 @@ const config = {
         use: [stylesHandler, "css-loader", "postcss-loader"],
       },
       {
-        test: /\.(eot|ttf|woff|woff2|svg|png|jpg|gif)$/i,
+        test: /\.(eot|ttf|woff|woff2|svg|png|jpg|gif|ico)$/i,
         type: "asset/resource",
       },
       {
@@ -42,6 +42,30 @@ const config = {
         type: "asset/inline",
         // Inline assets with the "inline" query parameter.
         resourceQuery: /inline/,
+      },
+      {
+        test: /robots.txt$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "",
+            },
+          },
+        ],
+      },
+      {
+        test: /sitemap.xml$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "",
+            },
+          },
+        ],
       },
       // Add your rules for custom modules here
       // Learn more about loaders from https://webpack.js.org/loaders/

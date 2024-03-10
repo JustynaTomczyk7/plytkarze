@@ -122,6 +122,8 @@ header::after {
   color: red;
   border: 2px solid red;
   background-color: transparent;
+  font-size: 22px !important;
+  font-weight: 500;
 }
 
 .btn-header:hover {
@@ -224,6 +226,10 @@ header::after {
     height: 70px;
   }
 
+  header h2 {
+    font-size: 2.25em;
+  }
+
   .carousel-inner .carousel-item-end.active,
   .carousel-inner .carousel-item-next {
     transform: translateX(25%);
@@ -289,6 +295,10 @@ header::after {
     transform: scale(1);
   }
 
+  header h2 {
+    font-size: 3em;
+  }
+
   header::after {
     opacity: 0;
   }
@@ -305,4 +315,9 @@ header::after {
   .services-img {
     width: 60px;
   }
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }

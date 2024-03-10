@@ -6,6 +6,12 @@ import GLightbox from "glightbox";
 const hamburger = document.querySelector("#see-menu");
 const menu = document.querySelector("#menu-content");
 
+const links = document.querySelectorAll("a span");
+
+links.forEach((link) => {
+  link.innerText = link.innerText.replace(/\s/g, "");
+});
+
 function seeMenu() {
   hamburger.addEventListener("click", () => menu.classList.toggle("d-none"));
 }
